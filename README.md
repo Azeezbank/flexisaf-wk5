@@ -102,20 +102,22 @@ const useCustomHook = (initial = 0): UseCustomReturnType => {
 export default useCustomHook;
 
 ## Using the useCustomHook
-"use client"
-import { useState } from "react"
+``'use client';
+import React from "react";
+import useCustom from "./components/custom";
+import Link from "next/link";
 
-
-type UseCustomReturnType = [number, () => void, () => void, () => void];
-
-const useCustomHook = (initial = 0): UseCustomReturnType => {
-    const [count, setCount] = useState<number>(initial);
-
-    const increament = () => setCount(count + 1);
-    const decreament = () => setCount(count - 1);
-    const clear = () => setCount(0);
-
-    return [count, increament, decreament, clear]
+const Custom:React.FC  = () => {
+    const [count, increament, decreament, clear] = useCustom(0)
+    return (
+        <>
+        <h3>Counter: {count} </h3>
+        <button type="button" onClick={increament}>Increament</button>
+        <button type="button" onClick={decreament}>decreament</button>
+        <button type="button" onClick={clear}>clear</button> <br/>
+        <Link href="/useref"><button type="button" className="button">Back to useref</button></Link>
+        </>
+    )
 }
 
-export default useCustomHook;
+export default Custom;``
