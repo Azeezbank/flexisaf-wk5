@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.button {
+    background-color: #FF0000;
+    padding: 5px;
+    border-radius: 10px;
+}
+button {
+    margin: 5px;
+    background-color: #00FF00;
+    border-radius: 4px;
+    padding: 5px;
+}
